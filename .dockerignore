@@ -11,6 +11,6 @@ react-frontend/dist
 frontend/
 docs/
 tests/
-data/
+data/raw/*.sqlite3
 docker-compose.yml
 backend/Dockerfile

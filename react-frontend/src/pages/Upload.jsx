@@ -1,19 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import { Upload as UploadIcon, FileText, CheckCircle, AlertTriangle, X } from 'lucide-react'
+import { Upload as UploadIcon, FileText, CheckCircle, AlertTriangle, X, Download } from 'lucide-react'
 import * as api from '../api/client.js'
 import Spinner from '../components/Spinner.jsx'
 
-const SAMPLE_CSV =
-  'ticket_id,timestamp,customer_id,channel,message,agent_reply,product,order_value,customer_country,resolution_status\n' +
-  ',2024-03-15 10:30:00,CUST001,chat,My order has not arrived yet.,,Wireless Headphones,99.99,United States,open\n' +
-  ',2024-03-15 11:00:00,CUST002,email,I was charged twice for my order.,,,49.99,United Kingdom,open\n'
-
 function downloadSample() {
-  const blob = new Blob([SAMPLE_CSV], { type: 'text/csv' })
-  const url  = URL.createObjectURL(blob)
-  const a    = Object.assign(document.createElement('a'), { href: url, download: 'sample_tickets.csv' })
+  const a = Object.assign(document.createElement('a'), {
+    href: api.getSampleCSVUrl(),
+    download: 'sample_1000_tickets.csv',
+  })
   a.click()
-  URL.revokeObjectURL(url)
 }
 
 export default function Upload() {
@@ -126,9 +121,26 @@ export default function Upload() {
           </table>
         </div>
         <button onClick={downloadSample} className="mt-3 btn-secondary text-xs">
-          ⬇ Download sample CSV
+          ⬇ Download 2-row sample
         </button>
       </details>
+
+      {/* Download 1000-row dataset */}
+      <div className="card flex flex-col sm:flex-row sm:items-center gap-4 bg-brand-50 border border-brand-200">
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-brand-800 text-sm">Need data to explore the app?</p>
+          <p className="text-xs text-brand-600 mt-0.5">
+            Download the built-in 1,000-row sample dataset and upload it to populate all dashboards instantly.
+          </p>
+        </div>
+        <button
+          onClick={downloadSample}
+          className="btn-primary flex items-center gap-2 shrink-0 text-sm px-4 py-2"
+        >
+          <Download size={15} />
+          Download 1,000-row CSV
+        </button>
+      </div>
 
       {/* Drop zone */}
       <div

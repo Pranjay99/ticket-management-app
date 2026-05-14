@@ -13,7 +13,7 @@ router = APIRouter(prefix="/suggest", tags=["Suggest"])
 def suggest_reply(request: SuggestRequest, db: Session = Depends(get_db)):
     """
     Generate a suggested agent reply for a given support ticket message.
-    Uses Gemini to produce a professional, empathetic response.
+    Uses Gemini to produce a professional, empathetic response and also provide guidence or solution to the problem .
     """
     try:
         from backend.pipeline.responder import generate_suggested_reply

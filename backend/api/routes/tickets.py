@@ -1,10 +1,12 @@
 import io
 import csv
+import os
 import uuid
 import random
 from datetime import date, datetime, timezone
 from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Query, status
+from fastapi.responses import FileResponse, StreamingResponse
 from sqlalchemy.orm import Session
 from sqlalchemy import func, or_
 
@@ -185,6 +187,25 @@ def get_task_status(task_id: str):
         status="SUCCESS",
         result={"processed": "done"},
         error=None,
+    )
+
+
+# ── Download Sample CSV ────────────────────────────────────────────────────────
+
+_SAMPLE_CSV = os.path.join(
+    os.path.dirname(__file__), "..", "..", "..", "data", "raw", "sample_1000.csv"
+)
+
+@router.get("/download/sample", tags=["Tickets"])
+def download_sample_csv():
+    """Download the 1000-row sample CSV file."""
+    path = os.path.abspath(_SAMPLE_CSV)
+    if not os.path.isfile(path):
+        raise HTTPException(status_code=404, detail="Sample CSV not found on server.")
+    return FileResponse(
+        path,
+        media_type="text/csv",
+        filename="sample_1000_tickets.csv",
     )
 
 

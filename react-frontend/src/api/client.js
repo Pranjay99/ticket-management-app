@@ -29,5 +29,6 @@ export const escalateTicket = (id)     => api.patch(`/tickets/${id}/escalate`)
 export const suggestReply   = (data)   => api.post('/suggest', data)
 export const searchTickets  = (data)   => api.post('/tickets/search', data)
 
-export const uploadCSV     = (formData) => api.post('/tickets/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
-export const getTaskStatus = (taskId)   => api.get(`/tickets/task/${taskId}`)
+export const uploadCSV          = (formData) => api.post('/tickets/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+export const getTaskStatus      = (taskId)   => api.get(`/tickets/task/${taskId}`)
+export const getSampleCSVUrl    = ()         => '/api/v1/tickets/download/sample'

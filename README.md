@@ -201,7 +201,7 @@ The `Dockerfile` builds React and bundles it into the FastAPI server — one URL
 |---|---|---|
 | `DATABASE_URL` | `sqlite:///./support_db.sqlite3` | Database connection |
 | `GEMINI_API_KEY` | *(empty)* | Google Gemini key — for AI replies only |
-| `GEMINI_MODEL` | `gemini-2.0-flash` | Gemini model name |
+| `GEMINI_MODEL` | `gemini-1.5-flash` | Gemini model name |
 
 Get a free Gemini API key at [aistudio.google.com](https://aistudio.google.com/app/apikey).
 

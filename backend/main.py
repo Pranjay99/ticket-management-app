@@ -6,7 +6,8 @@ from fastapi.responses import FileResponse
 from contextlib import asynccontextmanager
 
 from backend.config import settings
-from backend.db.session import engine, Base
+from backend.db.session import engine, Base, SessionLocal
+from backend.db.seed import seed_if_empty
 from backend.api.routes import tickets, insights, search, suggest
 from backend.utils.logger import get_logger
 
@@ -19,6 +20,11 @@ async def lifespan(app: FastAPI):
     from backend.models import ticket, insight  # noqa: F401
     Base.metadata.create_all(bind=engine)
     logger.info("Database tables ready.")
+    db = SessionLocal()
+    try:
+        seed_if_empty(db)
+    finally:
+        db.close()
     yield
     logger.info("Shutting down.")
 

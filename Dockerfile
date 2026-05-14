@@ -20,6 +20,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy backend source
 COPY backend/ ./backend/
 
+# Copy sample data (used for auto-seeding and download)
+COPY data/ ./data/
+
 # Copy React build output from stage 1
 COPY --from=frontend /app/react-frontend/dist ./react-frontend/dist
 
