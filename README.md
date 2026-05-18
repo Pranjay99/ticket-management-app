@@ -1,6 +1,8 @@
 # Support Insight
 
 An AI-powered customer support analytics platform. Upload a CSV of support tickets and get instant dashboards, trend analysis, category breakdowns, sentiment scoring, revenue risk tracking, and AI-generated agent replies — all in a fully responsive web app.
+<img width="1914" height="996" alt="image" src="https://github.com/user-attachments/assets/c38da325-6166-43a2-814b-ed77b4efca6b" />
+
 
 ---
 
@@ -22,11 +24,13 @@ An AI-powered customer support analytics platform. Upload a CSV of support ticke
 - **Daily Status Breakdown** — Stacked bar showing open/resolved/escalated per day
 - **Volume vs Revenue at Risk** — Combined bar + line chart showing both metrics on the same timeline
 - **Category Velocity** — Compares ticket count this period vs the previous period for each category, flagging what's increasing or decreasing
+<img width="1916" height="992" alt="image" src="https://github.com/user-attachments/assets/d21c8b77-82ca-4265-b638-d8e052d6f28e" />
 
 ### Categories
 - Stacked bar chart showing open / resolved / escalated tickets per category
 - Clickable category cards showing percentage share, resolution rate, mini status bar
 - Per-category drilldown with status donut, sentiment donut, and top issues bar chart
+<img width="1915" height="996" alt="image" src="https://github.com/user-attachments/assets/2f7ed92e-6439-40d8-a9c1-e525fdb8437a" />
 
 ### Ticket Explorer
 - Full-text search across all ticket messages
@@ -35,6 +39,7 @@ An AI-powered customer support analytics platform. Upload a CSV of support ticke
 - Expand any ticket to see the full message, agent reply, key issues, and metadata
 - **Resolve** or **Escalate** tickets directly from the UI
 - **Generate AI Reply** — uses Google Gemini to write a professional, empathetic agent response
+<img width="1916" height="1000" alt="image" src="https://github.com/user-attachments/assets/24f60e1f-c824-4a23-b62b-b9bd86ef5fd5" />
 
 ### Upload
 - Drag-and-drop CSV upload
