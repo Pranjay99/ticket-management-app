@@ -263,3 +263,6 @@ ticket-management-app/
 ├── render.yaml             # One-click Render deployment
 └── .env.example            # Environment variable template
 ```
+## 🔗 Portfolio
+[![Portfolio](https://img.shields.io/badge/Portfolio-Pranjay%20Seksaria-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://pranjay-portfolio.netlify.app/)
+
